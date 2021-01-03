@@ -1,0 +1,14 @@
+{% extends 'portfolio/base.html' %} {% block vinuscontent %}
+<h1>My Portfolio</h1>
+
+<a href="{% url 'blog:all_blogs' %}">Blog</a>
+
+{% load static %}
+<a href="{% static 'portfolio/resume.pdf' %}">Resume</a>
+<img src="{% static 'portfolio/merry_xmas.jpg' %}" alt="" />
+
+{% for project in projects %}
+<h1>{{ project.title }}</h1>
+<h2>{{ project.description }}</h2>
+<img src="{{ project.image.url }}" />
+{% endfor %} {% endblock %}
